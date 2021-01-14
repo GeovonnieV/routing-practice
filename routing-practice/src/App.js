@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import the Router for react routing
+import {Router} from "@reach/router";
+// import components
+import Home from "./components/Home";
+import Number from "./components/Number";
+import Word from "./components/Word";
+import Rambo from "./components/Rambo";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        {/* user types /home in the URL it takes them to the Home component */}
+        <Home path="/home/"/>
+        <Number path="/number/:userNumber" />
+        <Word path="/word/:userWord"/>
+        <Rambo path="/:userWord/:txtColor/:backColor" />
+      </Router>
     </div>
   );
 }
